@@ -1,0 +1,85 @@
+{
+  "projectType": "saas",
+  "projectName": "SkinTrack",
+  "projectDescription": "A web application for cosmetology practices to manage patient records, clinical session drafts, and staff authentication with strict data ownership.",
+  "theme": "almond",
+  "primaryColor": "#2D9D8F",
+  "lightColor": "#E8F7F5",
+  "darkColor": "#1A6B62",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": ["introduction", "getting-started/quickstart", "getting-started/environment-setup"]
+          },
+          {
+            "group": "Authentication",
+            "pages": ["auth/overview", "auth/invitation-flow", "auth/session-management"]
+          },
+          {
+            "group": "Core Features",
+            "pages": [
+              "features/patients",
+              "features/clinical-sessions",
+              "features/profile-management",
+              "features/admin-users"
+            ]
+          },
+          {
+            "group": "Database",
+            "pages": ["database/schema", "database/row-level-security", "database/migrations"]
+          },
+          {
+            "group": "Deployment",
+            "pages": ["deployment/vercel", "deployment/supabase-setup"]
+          }
+        ]
+      },
+      {
+        "tab": "Developer Guide",
+        "groups": [
+          {
+            "group": "Architecture",
+            "pages": ["architecture/overview", "architecture/data-flow", "architecture/server-actions"]
+          },
+          {
+            "group": "Testing",
+            "pages": ["testing/unit-tests", "testing/e2e-tests"]
+          },
+          {
+            "group": "Reference",
+            "pages": ["reference/routes", "reference/schemas", "reference/environment-variables"]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Private staff authentication with invitation-only onboarding",
+    "Patient record management with comprehensive medical history",
+    "Clinical session drafts with autosave and completion workflow",
+    "Superadmin user management and invitation flow",
+    "Row-Level Security (RLS) for strict data ownership",
+    "Session expiry warning UI",
+    "Google OAuth and email/password authentication",
+    "E2E test coverage with Playwright"
+  ],
+  "publicApiSurface": [
+    "POST /auth/callback — OAuth callback handler",
+    "GET /login — Authentication page",
+    "GET /patients — Patient listing with search",
+    "GET /patients/[patientId] — Patient detail with tabs",
+    "POST /patients — Create patient (Server Action)",
+    "GET /patients/[patientId]/sessions/new — New clinical session",
+    "GET /patients/[patientId]/sessions/[sessionId] — Clinical session editor with autosave",
+    "GET /admin/users — User administration (superadmin only)",
+    "GET /profile — Profile management page",
+    "patientFormSchema — Zod schema for patient creation/update",
+    "clinicalSessionFormSchema — Zod schema for clinical session",
+    "complete_user_onboarding() — PostgreSQL function for first login",
+    "db:link / db:push / db:types — Supabase CLI database scripts"
+  ]
+}
